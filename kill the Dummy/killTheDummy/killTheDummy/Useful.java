@@ -15,7 +15,7 @@ public class Useful extends Object {
 	
 	//there shouldn't be any objects of this class.
 	@SuppressWarnings("unused")
-	private Useful useful = new Useful();
+	private static final Useful useful = new Useful();
 	/**
 	 * constructor. It's private because there shouldn't be any objects of this class.
 	 */

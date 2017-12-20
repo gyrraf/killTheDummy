@@ -37,7 +37,7 @@ class Stats extends Object {
 	
 	//there shouldn't be any objects of this class.
 	@SuppressWarnings("unused")
-	private Stats stats = new Stats();
+	private static final Stats stats = new Stats();
 	/**
 	 * constructor. It's private because there shouldn't be any objects of this class.
 	 */
