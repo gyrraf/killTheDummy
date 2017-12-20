@@ -1,0 +1,76 @@
+-----------------------------------
+Player
+-----------------------------------
+starting health and maxHealth: 100
+
+AA:				0 <= damage gets dealt < 1/3 enemy currentHealth but minimum 10 <= no damage dealt < 2/3 enemy currentHealth but minimum 20 <= damage yourself
+
+Ability1:		Heal
+CD:				4
+Value:			20% own maxHealth
+Description:	
+
+Ability2:		Damage
+CD:				3
+Value:			20% own maxHealth
+Description:	
+
+Ability3:		Shield
+CD:				6
+Value:			50 HP
+Description:	
+
+Ability4:		increase maxHealth
+CD:				10
+Value:			50 HP
+Description:	
+Note:			cooldown Active when beginning the game
+
+
+
+
+
+-----------------------------------
+Enemy
+-----------------------------------
+starting health and maxHealth: decide by the player before the game
+
+AA:				(own maxHealth != own currentHealth) {(damageDealt > 20 && own currentHealth > 30) {90% of damageDealt} (own currentHealth <= 30) {120% of damageDealt} {20 damage}}
+
+Ability1:		Heal
+CD:				6
+Value:			35% own maxHealth
+Description:	
+
+Ability2:		Damage
+CD:				5
+Value:			20% enemy maxHealth
+Description:
+
+Ability3:		Shield
+CD:				4
+Value:			30HP
+Description
+
+Ability4:		decreaseCooldowns
+CD:				12
+Value:			2 (on all except Ability4 itself)
+Description:	
+Note:			cooldown Active when beginning the game
+
+
+
+
+
+
+
+
+
+
+Both: Heal, Damage, Shield
+specific: maxHealth increase, maxHealth decrease, decreaseCooldowns, increaseCooldowns
+-----------------------------------
+-----------------------------------
+		health	maxHealth			cooldown			Shield
+Self:	Heal,	maxHealth increase,	decreaseCooldowns,	Shield
+Enemy:	Damage,	maxHealth decrease,	increaseCooldowns
