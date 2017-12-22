@@ -7,6 +7,7 @@
 package killTheDummy;
 
 import java.io.IOException;
+import java.util.regex.PatternSyntaxException;
 import java.util.Scanner;
 
 /**
@@ -91,13 +92,47 @@ public class Fight extends Object {
 					input = " ";
 				}
 				
+				/*
+				 * it's supposed to be allowed to enter 'ability 1' which would execute ability1 immediatly.
+				 * the same goes for 'attack'
+				 */
+				//split Strings
+				String[] temp;
+				try {
+					temp = input.split(" ");
+				} catch (PatternSyntaxException ex) {
+					temp = new String[2];
+				}
+				String[] inputArr = new String[2];
+				if (temp.length >= 1) {
+					if (temp[0] != null) {
+						inputArr[0] = temp[0];
+					}
+				}
+				if (temp.length >= 2) {
+					if (temp[1] != null) {
+						inputArr[1] = temp[1];
+					}
+				}
+				
+				//get the number
+				int number = 0;
+				if (inputArr[1] != null) {
+					try {
+						number = Integer.parseInt(inputArr[1]);
+					} catch (NumberFormatException e) {
+						inputArr[0] = "invalid";
+						number = 0;
+					}
+				}
+				
 				//verify input
-				while (!((input.equals("info"))
-						|| (input.equals("ability"))
-						|| (input.equals("attack"))
-						|| (input.equals("nothing"))
-						|| (input.equals("surrender"))
-						|| (input.equals("stats")))) {
+				while (!((inputArr[0].equals("info"))
+						|| ((inputArr[0].equals("ability") && (number <= 4) && (number > 0)))
+						|| ((inputArr[0].equals("attack") && (number > 0)))
+						|| (inputArr[0].equals("nothing"))
+						|| (inputArr[0].equals("surrender"))
+						|| (inputArr[0].equals("stats")))) {
 					//output
 					System.out.println("Invalid input.");
 					System.out.println("Please use one of the following commands:");
@@ -114,18 +149,59 @@ public class Fight extends Object {
 					} catch (Exception e) {
 						input = " ";
 					}
+					
+					/*
+					 * it's supposed to be allowed to enter 'ability 1' which would execute ability1 immediatly.
+					 * the same goes for 'attack'
+					 */
+					//split Strings
+					try {
+						temp = input.split(" ");
+					} catch (PatternSyntaxException ex) {
+						temp = new String[2];
+					}
+					inputArr = new String[2];
+					if (temp.length >= 1) {
+						if (temp[0] != null) {
+							inputArr[0] = temp[0];
+						}
+					}
+					if (temp.length >= 2) {
+						if (temp[1] != null) {
+							inputArr[1] = temp[1];
+						}
+					}
+					
+					//get the number
+					number = 0;
+					if (inputArr[1] != null) {
+						try {
+							number = Integer.parseInt(inputArr[1]);
+						} catch (NumberFormatException e) {
+							inputArr[0] = "invalid";
+							number = 0;
+						}
+					}
 				}
 				
 				//perform action
-				switch (input) {
+				switch (inputArr[0]) {
 					case "info":
 						info();
 						break;
 					case "ability":
-						moveMade = playerAbility();
+						if (number != 0) {
+							moveMade = playerAbility(number);
+						} else {
+							moveMade = playerAbility();
+						}
 						break;
 					case "attack":
-						playerAttack();
+						if (number != 0) {
+							playerAttack(number);
+						} else {
+							playerAttack();
+						}
 						moveMade = true;
 						break;
 					case "nothing":
@@ -239,11 +315,6 @@ public class Fight extends Object {
 		/*
 		 * attack the enemy
 		 * let the player decide how much damage to deal
-		 * if he enters a number too large, the attack fails and hits the player himself or just misses
-		 * 
-		 * 0 <= damage gets dealt < 1/3 enemy currentHealth but minimum 10
-		 * 1/3 enemy currentHealth but minimum 10 <= no damage dealt < 2/3 enemy currentHealth but minimum 20
-		 * 2/3 enemy currentHealth but minimum 20 <= damage yourself
 		 */
 		
 		//Ask how much damage he wants to deal
@@ -266,6 +337,22 @@ public class Fight extends Object {
 				incorrect = true;
 			}
 		}
+		
+		playerAttack(damage);
+	} //End of method 'playerAttack(): void'
+	
+	/**
+	 * lets the player attack the enemy.
+	 * @param	damage	the damage that's supposed to be dealt
+	 */
+	private static void playerAttack(int damage) {
+		/*
+		 * if he enters a number too large, the attack fails and hits the player himself or just misses
+		 * 
+		 * 0 <= damage gets dealt < 1/3 enemy currentHealth but minimum 10
+		 * 1/3 enemy currentHealth but minimum 10 <= no damage dealt < 2/3 enemy currentHealth but minimum 20
+		 * 2/3 enemy currentHealth but minimum 20 <= damage yourself
+		 */
 		
 		//TODO if balance is bad. Change this.
 		//check which of the three possibilities apply
@@ -328,10 +415,10 @@ public class Fight extends Object {
 		
 		in.nextLine();
 		System.out.println("\n");
-	} //End of method 'playerAttack(): void'
+	} //End of method 'playerAttack(int): void'
 
 	/**
-	 * asks which ability is supposed to be used and uses it if it isn't on cooldown.
+	 * asks which ability is supposed to be used
 	 * @return	true = ability used, false = ability on cooldown.
 	 */
 	private static boolean playerAbility() {
@@ -361,6 +448,20 @@ public class Fight extends Object {
 				System.out.println("Use the numbers 1-4 for your selection.");
 			}
 		}
+		
+		return playerAbility(ability);
+	} //End of method 'playerAbility(): boolean'
+	
+	/**
+	 * uses the ability if it isn't on cooldown.
+	 * @return	true = ability used, false = ability on cooldown.
+	 * @param	ability	the ability that is supposed to be used.
+	 */
+	private static boolean playerAbility(int ability) {
+		/*
+		 * check cooldown
+		 * if successful return true if unsuccessful return false
+		 */
 		
 		//Check cooldown & use ability if not on cooldown
 		switch (ability) {
@@ -424,7 +525,7 @@ public class Fight extends Object {
 			default:
 				return false;
 		}
-	} //End of method 'playerAbility(): boolean'
+	} //End of method 'playerAbility(int): boolean'
 
 	/**
 	 * Lets the player do nothing
@@ -435,6 +536,8 @@ public class Fight extends Object {
 		} else {
 			System.out.println("You looked at your wounds. It started to hurt and you did nothing.");
 		}
+		
+		in.nextLine();
 	} //End of method 'nothing(): void'
 
 	/**
