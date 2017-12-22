@@ -135,4 +135,19 @@ public class Useful extends Object {
 			throw arithmeticEx = new ArithmeticException("division by zero");
 		}
 	} //End of method 'isDividable(int, int): boolean'
+	
+	/**
+	 * Checks if 'value' is in 'container'
+	 * @param	value		the value that should be checked
+	 * @param	container	the list that should be checked
+	 * @return	if 'value' is in 'container'
+	 */
+	public static boolean containsStrings(String value, String[] container) {
+		for (String check : container) {
+			if (value.equals(check)) {
+				return true;
+			}
+		}
+		return false;
+	} //End of method 'containsString(String, String[]): boolean'
 }

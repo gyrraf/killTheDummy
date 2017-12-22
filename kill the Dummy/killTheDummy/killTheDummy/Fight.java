@@ -42,12 +42,30 @@ public class Fight extends Object {
 		//make 'args' useless
 		args = null;
 		
+		//FIXME remove method when no longer work in progress$
+		workInProgress();
+		
 		//the game
 		game();
 		
 		//close everything and remove saved objects
 		close();
 	} //End of main method
+	
+	/**
+	 * tells the user that this is work in progress.
+	 */
+	private static void workInProgress() {
+		//FIXME remove method when work is no longer in progress
+		System.out.println(
+				"This project is still work in Progress." + "\n"
+				+ "If there are any Bugs, please report them to me: " + "\n"
+				+ "If there is anything that you think could be improved, please tell me." + "\n"
+				+ "Contact Details:" + contactDetails
+				);
+		
+		in.nextLine();
+	} //End of method 'workInProgress(): void'
 	
 	/**
 	 * The actual game
@@ -101,9 +119,9 @@ public class Fight extends Object {
 				try {
 					temp = input.split(" ");
 				} catch (PatternSyntaxException ex) {
-					temp = new String[2];
+					temp = new String[3];
 				}
-				String[] inputArr = new String[2];
+				String[] inputArr = new String[3];
 				if (temp.length >= 1) {
 					if (temp[0] != null) {
 						inputArr[0] = temp[0];
@@ -114,6 +132,11 @@ public class Fight extends Object {
 						inputArr[1] = temp[1];
 					}
 				}
+				if (temp.length >= 3) {
+					if (temp[2] != null) {
+						inputArr[2] = temp[2];
+					}
+				}
 				
 				//get the number
 				int number = 0;
@@ -121,15 +144,39 @@ public class Fight extends Object {
 					try {
 						number = Integer.parseInt(inputArr[1]);
 					} catch (NumberFormatException e) {
-						inputArr[0] = "invalid";
 						number = 0;
 					}
 				}
 				
+				String[] info = new String[9];
+				info[0] = "1";
+				info[1] = "2";
+				info[2] = "3";
+				info[3] = "4";
+				info[4] = "attack";
+				info[5] = "nothing"; 
+				info[6] = "enemy";
+				info[7] = "surrender";
+				info[8] = "player";
+				
+				String[] enemyInfo = new String[8];
+				enemyInfo[0] = "general";
+				enemyInfo[1] = "pattern";
+				enemyInfo[2] = "attack";
+				enemyInfo[3] = "1";
+				enemyInfo[4] = "2";
+				enemyInfo[5] = "3";
+				enemyInfo[6] = "4";
+				enemyInfo[7] = "nothing";
+				
 				//verify input
 				while (!((inputArr[0].equals("info"))
-						|| ((inputArr[0].equals("ability") && (number <= 4) && (number > 0)))
-						|| ((inputArr[0].equals("attack") && (number > 0)))
+						|| ((inputArr[0].equals("info")) && (Useful.containsStrings(inputArr[1], info)))
+						|| ((inputArr[0].equals("info")) && (inputArr[1].equals("enemy")) && (Useful.containsStrings(inputArr[2], enemyInfo)))
+						|| ((inputArr[0].equals("ability")) && (number <= 4) && (number > 0))
+						|| (inputArr[0].equals("ability"))
+						|| ((inputArr[0].equals("attack")) && (number > 0))
+						|| (inputArr[0].equals("attack"))
 						|| (inputArr[0].equals("nothing"))
 						|| (inputArr[0].equals("surrender"))
 						|| (inputArr[0].equals("stats")))) {
@@ -171,6 +218,11 @@ public class Fight extends Object {
 							inputArr[1] = temp[1];
 						}
 					}
+					if (temp.length >= 3) {
+						if (temp[2] != null) {
+							inputArr[2] = temp[2];
+						}
+					}
 					
 					//get the number
 					number = 0;
@@ -187,7 +239,11 @@ public class Fight extends Object {
 				//perform action
 				switch (inputArr[0]) {
 					case "info":
-						info();
+						if (inputArr[1] != null) {
+							info(inputArr[1], inputArr[2]);
+						} else {
+							info();
+						}
 						break;
 					case "ability":
 						if (number != 0) {
@@ -575,8 +631,7 @@ public class Fight extends Object {
 	} //End of method 'surrender(): void'
 
 	/**
-	 * gives the player short information about something
-	 * @param selection
+	 * let's the player choose what he wants information about.
 	 */
 	private static void info() {
 		//ask what the player wants information about
@@ -593,6 +648,34 @@ public class Fight extends Object {
 		System.out.println("'player':\t			to get information about yourself.");
 		String selection = in.nextLine();
 		
+		//allow selection of the input to 'enemyInfo'
+		String[] temp;
+		try {
+			temp = selection.split(" ");
+		} catch (PatternSyntaxException ex) {
+			temp = new String[2];
+		}
+		String[] inputArr = new String[2];
+		if (temp.length >= 1) {
+			if (temp[0] != null) {
+				inputArr[0] = temp[0];
+			}
+		}
+		if (temp.length >= 2) {
+			if (temp[1] != null) {
+				inputArr[1] = temp[1];
+			}
+		}
+		
+		info(inputArr[0], inputArr[1]);
+	} //End of method 'info(): void'
+	
+	/**
+	 * gives the player short information about something
+	 * @param	selection		the thing the player wants information about.
+	 * @param	enemySelection	the thing about the enemy the player wants information about
+	 */
+	private static void info(String selection, String enemySelection) {
 		//give information
 		switch (selection) {
 			case "1":
@@ -616,7 +699,11 @@ public class Fight extends Object {
 				System.out.println(player.infoAttack());
 				break;
 			case "enemy":
-				enemyInfo();
+				if (enemySelection != null) {
+					enemyInfo(enemySelection);
+				} else {
+					enemyInfo();
+				}
 				break;
 			case "nothing":
 				System.out.println("You do nothing and skip your turn.");
@@ -637,10 +724,10 @@ public class Fight extends Object {
 		System.out.println("\n");
 		
 		in.nextLine();
-	} //End of method 'info(): void'
-
+	} //End of method 'info(String, String): void'
+	
 	/**
-	 * Allows the player to get information about the enemy
+	 * Allows the player to choose which information he wants
 	 */
 	private static void enemyInfo() {
 		//give general information
@@ -651,6 +738,7 @@ public class Fight extends Object {
 		//Ask what the player wants more information about
 		System.out.println("Which part of your enemy do you want to know more about?");
 		System.out.println("Use these commands:");
+		System.out.println("'general':\t\t			to get the general information again.");
 		System.out.println("'pattern':\t\t			to get information about his attack pattern.");
 		System.out.println("'attack':\t				to get information about his normal attack.");
 		System.out.println("'1':\t 					to get information about his ability one.");
@@ -660,6 +748,14 @@ public class Fight extends Object {
 		System.out.println("'nothing':\t\t			to not get any additional information.");
 		String selection = in.nextLine();
 		
+		enemyInfo(selection);
+	} //End of method 'enemyInfo(): void'
+	
+	/**
+	 * Allows the player to get information about the enemy
+	 * @param	selection	the thing of the enemy the player wants information about
+	 */
+	private static void enemyInfo(String selection) {
 		//give information
 		switch (selection) {
 			case "pattern":
@@ -690,13 +786,16 @@ public class Fight extends Object {
 			case "nothing":
 				System.out.println("If you don't want any additional information. So it shall be.");
 				break;
+			case "general":
+				System.out.println(enemy.generalInformation());
+				break;
 			default:
 				System.out.println("I'm sorry but I can't give you any information about " + selection + " because I didn't give you this option.");
 				System.out.println("You managed to make an incorrect choice and I will punish you by not giving you any information.");
 				break;
 		}
-	} //End of method 'enemyInfo(): void'
-
+	} //End of method 'enemyInfo(String): void'
+	
 	/**
 	 * The enemies turn
 	 */
