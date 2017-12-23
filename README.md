@@ -16,4 +16,4 @@ There are two ways to start this programme:
 - Check for spelling mistakes
 
 ## Things I might do in the future
-- Use a GUI (probably with "javax.swing" and "java.awt")
+- Use a GUI (probably with "javax.swing" and "java.awt") instead of the console in and outputs.
