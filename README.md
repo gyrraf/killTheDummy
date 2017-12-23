@@ -1,7 +1,18 @@
 # killTheDummy
 A textbased, turnbased game where you try to kill the enemy before the enemy kills you.
 
-Things I still have to do:
+## Folder structure
+The folder structure is from Eclipse. This is just a copy of the folder I use while working in Eclipse.
+
+## start the programme
+There are two ways to start this programme:
+1. Start "./killTheDummy/killTheDummy/killTheDummy.jar" using "java -jar killTheDummy.jar" in the console
+2. Start "./killTheDummy/killTheDummy/bin/killTheDummy/Fight.class" using "java Fight" in the console.
+
+## Things I still have to do:
 - Ability Balance
 - Search for Bugs (testing)
 - Check for spelling mistakes
+
+## Things I might do in the future
+- Use a GUI (probably with "javax.swing" and "java.awt")
