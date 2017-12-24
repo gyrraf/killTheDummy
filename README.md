@@ -13,7 +13,7 @@ There are two ways to start this programme:
 ## Things I still have to do:
 - Ability Balance
 - Search for Bugs (testing)
-- Check for spelling mistakes
+- Check for grammatical mistakes and spelling errors
 
 ## Things I might do in the future
 - Use a GUI (probably with "javax.swing" and "java.awt") instead of the console in and outputs.
