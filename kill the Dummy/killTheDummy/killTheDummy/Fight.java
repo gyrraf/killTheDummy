@@ -8,6 +8,7 @@ package killTheDummy;
 
 import java.io.IOException;
 import java.util.regex.PatternSyntaxException;
+
 import java.util.Scanner;
 
 /**
@@ -47,6 +48,9 @@ public class Fight extends Object {
 		
 		//the game
 		game();
+		
+		//the credits
+		credits();
 		
 		//close everything and remove saved objects
 		close();
@@ -970,6 +974,16 @@ public class Fight extends Object {
 	} //End of method 'theEnd(): void'
 	
 	/**
+	 * prints out the credits
+	 */
+	private static void credits() {
+		System.out.println("Code written by:" + "\n" + "Raffael Gyr" + "\n");
+		System.out.println("Idea by:" + "\n" + "a friend who doesn't want to be mentioned." + "\n");
+		System.out.println("Tested by:" + "\n" + "[add Person]" + "\n"); //FIXME add Person
+		System.out.println("Grammar corrected by:" + "\n" + "[add Person]" + "\n"); //FIXME add Person
+	} //End of method 'credits(): void'
+	
+	/**
 	 * closes everything and removes all objects
 	 */
 	private static void close() {
@@ -996,18 +1010,6 @@ public class Fight extends Object {
 			
 			if (fight != null) {
 				fight = null;
-			}
-			
-			if (damageDealt != 0) {
-				damageDealt = 0;
-			}
-			
-			if (!suicide) {
-				suicide = true;
-			}
-			
-			if (contactDetails != null) {
-				contactDetails = null;
 			}
 		} catch (IllegalStateException ex) {
 			ex.printStackTrace(System.out);
