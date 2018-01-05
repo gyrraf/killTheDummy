@@ -4,7 +4,7 @@ Once in the OpenDocument format in the folder called "odf".
 Once in the Microsoft Office Version in the folder called "Microsoft_Office".
 
 If you just want to look at it, I would recommend using the ".pdf" versions.
-If you want to inspect it in the proper program, I would recommend using Microsoft_Office and the files in the folder "Microsoft_Office" because I created them that way.
+If you want to inspect it in the proper program, I would recommend using Microsoft Office and the files in the folder "Microsoft_Office" because I created them that way.
 
 NOTE:
 Microsoft Excel warned me that somethings might not work anymore when saved as an ".ods"-file. (".ods" is the OpenDocument file extension for spreadsheets.) I checked with both Microsoft Excel and LibreOffice Calc and didn't find anything major. (The sizes don't match up with each other.)
