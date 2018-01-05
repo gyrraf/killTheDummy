@@ -1,6 +1,6 @@
 I saved all of the files three times.
 Once as a ".pdf" in the folder called "pdf".
-Once in the OpenDocument version in the folder called "odf".
+Once in the OpenDocument format in the folder called "odf".
 Once in the Microsoft Office Version in the folder called "Microsoft_Office".
 
 If you just want to look at it, I would recommend using the ".pdf" versions.
