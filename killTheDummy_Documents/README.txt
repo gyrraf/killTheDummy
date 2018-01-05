@@ -1,0 +1,11 @@
+I saved all of the files three times.
+Once as a ".pdf" in the folder called "pdf".
+Once in the OpenDocument version in the folder called "odf".
+Once in the Microsoft Office Version in the folder called "Microsoft_Office".
+
+If you just want to look at it, I would recommend using the ".pdf" versions.
+If you want to inspect it in the proper program, I would recommend using Microsoft_Office and the files in the folder "Microsoft_Office" because I created them that way.
+
+NOTE:
+Microsoft Excel warned me that somethings might not work anymore when saved as an ".ods"-file. (".ods" is the OpenDocument file extension for spreadsheets.) I checked with both Microsoft Excel and LibreOffice Calc and didn't find anything major. (The sizes don't match up with each other.)
+Microsoft Visio doesn't allow the usage of ".odg" at all. (".odg" is the OpenDocument file extension for graphics.) I had to open it with LibreOffice Draw and save it from there. It can't be opened with Microsoft Visio but it can be opened with LibreOffice Draw. (The sizes don't match up with each other again.)
