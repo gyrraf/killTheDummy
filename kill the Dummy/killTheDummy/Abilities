@@ -33,7 +33,7 @@ Note:			cooldown Active when beginning the game
 -----------------------------------
 Enemy
 -----------------------------------
-starting health and maxHealth: decide by the player before the game
+starting health and maxHealth: decided by the player before the game
 
 AA:				(own maxHealth != own currentHealth) {(damageDealt > 20 && own currentHealth > 30) {90% of damageDealt} (own currentHealth <= 30) {120% of damageDealt} {20 damage}}
 
@@ -45,12 +45,12 @@ Description:
 Ability2:		Damage
 CD:				5
 Value:			20% enemy maxHealth
-Description:
+Description:	
 
 Ability3:		Shield
 CD:				4
 Value:			30HP
-Description
+Description:	
 
 Ability4:		decreaseCooldowns
 CD:				12
