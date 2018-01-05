@@ -6,7 +6,7 @@ The folder structure was made by Eclipse. This is just a copy of the folder I us
 The folder contains an executable jar-file, the entire javadoc, the ".class" files and the ".java" files.
 
 ## start the programme
-There are two ways to start this programme:
+There are two ways to start this program:
 1. Start "./killTheDummy/killTheDummy/killTheDummy.jar" using "java -jar killTheDummy.jar" in the console
 2. Start "./killTheDummy/killTheDummy/bin/killTheDummy/Fight.class" using "java Fight" in the console.
 
