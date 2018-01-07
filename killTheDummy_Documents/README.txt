@@ -1,10 +1,7 @@
 I saved all of the files three times.
-Once as a ".pdf" in the folder called "pdf".
-Once in the OpenDocument format in the folder called "odf".
-Once in the Microsoft Office Version in the folder called "Microsoft_Office".
-
-If you just want to look at it, I would recommend using the ".pdf" versions.
-If you want to inspect it in the proper program, I would recommend using Microsoft Office and the files in the folder "Microsoft_Office" because I created them that way.
+Once as a ".pdf" in the folder called "pdf". If you just want to look at it, I would recommend using these.
+Once in the OpenDocument format in the folder called "odf". Depending on which program you use to open these, it might not look the way it did when I created them in Microsoft Office.
+Once in the Microsoft Office Version in the folder called "Microsoft_Office". If you want to inspect the documents in the form I created them, I would suggest using these and opening them in the corresponding Microsoft Office Program.
 
 NOTE:
 Microsoft Excel warned me that somethings might not work anymore when saved as a ".ods"-file. (".ods" is the OpenDocument file extension for spreadsheets.) I checked with both Microsoft Excel and LibreOffice Calc and didn't find anything major. (The sizes don't match up with each other.)
