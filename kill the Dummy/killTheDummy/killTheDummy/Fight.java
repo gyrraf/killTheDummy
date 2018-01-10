@@ -24,8 +24,8 @@ public class Fight extends Object {
 	private static Dummy	enemy;
 	private static int		damageDealt;
 	private static boolean	suicide;
-	private static String	contactDetails	= "Raffael Gyr" + "\n"
-												+ "raffael.gyr@hotmail.com";
+	private static String	contactDetails	= "Name: Raffael Gyr" + "\n"
+												+ "E-Mail: raffael.gyr@hotmail.com";
 	
 	//there shouldn't be any objects of this class.
 	private static Fight fight = new Fight();
@@ -65,7 +65,8 @@ public class Fight extends Object {
 				"This project is still work in Progress." + "\n"
 				+ "If there are any Bugs, please report them to me: " + "\n"
 				+ "If there is anything that you think could be improved, please tell me." + "\n"
-				+ "Contact Details:" + contactDetails
+				+ "Contact Details:" + "\n"
+				+ contactDetails
 				);
 		
 		in.nextLine();
@@ -99,12 +100,12 @@ public class Fight extends Object {
 				//ask what to do
 				System.out.println("What do you want to do?");
 				System.out.println("Use the following commands:");
-				System.out.println("'info':\t		to get Information about something.");
-				System.out.println("'stats':		to display statistics.");
-				System.out.println("'ability':\t	to use an ability.");
-				System.out.println("'attack':		to use a normal attack.");
-				System.out.println("'nothing':\t	to do nothing and skip your turn.");
-				System.out.println("'surrender':\t	to give up.");
+				System.out.println("'info':" + "\t\t\t" +		"to get Information about something.");
+				System.out.println("'stats':" + "\t\t" +		"to display statistics.");
+				System.out.println("'ability':" + "\t\t" +		"to use an ability.");
+				System.out.println("'attack':" + "\t\t" +		"to use a normal attack.");
+				System.out.println("'nothing':" + "\t\t" +		"to do nothing and skip your turn.");
+				System.out.println("'surrender':" + "\t\t" +	"to give up.");
 				
 				//input
 				String input;
@@ -641,15 +642,15 @@ public class Fight extends Object {
 		//ask what the player wants information about
 		System.out.println("What do you want Information about?");
 		System.out.println("Use the following commands:");
-		System.out.println("'1':\t				to get information about ability one.");
-		System.out.println("'2':\t				to get information about ability two.");
-		System.out.println("'3':\t				to get information about ability three.");
-		System.out.println("'4':\t				to get information about ability four.");
-		System.out.println("'attack':\t			to get information about the attack.");
-		System.out.println("'nothing':\t\t		to get information about the option 'nothing'.");
-		System.out.println("'enemy':\t			to get information about the enemy.");
-		System.out.println("'surrender':\t\t\t	to get information about the option 'surrender'.");
-		System.out.println("'player':\t			to get information about yourself.");
+		System.out.println("'1':" + "\t\t\t" +			"to get information about ability one.");
+		System.out.println("'2':" + "\t\t\t" +			"to get information about ability two.");
+		System.out.println("'3':" + "\t\t\t" +			"to get information about ability three.");
+		System.out.println("'4':" + "\t\t\t" +			"to get information about ability four.");
+		System.out.println("'attack':" + "\t\t" +		"to get information about the attack.");
+		System.out.println("'nothing':" + "\t\t" +		"to get information about the option 'nothing'.");
+		System.out.println("'enemy':" + "\t\t" +		"to get information about the enemy.");
+		System.out.println("'surrender':" + "\t\t" +	"to get information about the option 'surrender'.");
+		System.out.println("'player':" + "\t\t" +		"to get information about yourself.");
 		String selection = in.nextLine();
 		
 		//allow selection of the input to 'enemyInfo'
@@ -742,14 +743,14 @@ public class Fight extends Object {
 		//Ask what the player wants more information about
 		System.out.println("Which part of your enemy do you want to know more about?");
 		System.out.println("Use these commands:");
-		System.out.println("'general':\t\t			to get the general information again.");
-		System.out.println("'pattern':\t\t			to get information about his attack pattern.");
-		System.out.println("'attack':\t				to get information about his normal attack.");
-		System.out.println("'1':\t 					to get information about his ability one.");
-		System.out.println("'2':\t					to get information about his ability two.");
-		System.out.println("'3':\t					to get information about his ability three.");
-		System.out.println("'4':\t					to get information about his ability four.");
-		System.out.println("'nothing':\t\t			to not get any additional information.");
+		System.out.println("'general':" + "\t\t" +		"to get general information again.");
+		System.out.println("'pattern':" + "\t\t" +		"to get information about his attack pattern.");
+		System.out.println("'attack':" + "\t\t" +		"to get information about his normal attack.");
+		System.out.println("'1':" + "\t\t\t" +			"to get information about his ability one.");
+		System.out.println("'2':" + "\t\t\t" +			"to get information about his ability two.");
+		System.out.println("'3':" + "\t\t\t" +			"to get information about his ability three.");
+		System.out.println("'4':" + "\t\t\t" +			"to get information about his ability four.");
+		System.out.println("'nothing':" + "\t\t" +		"to not get any additional information.");
 		String selection = in.nextLine();
 		
 		enemyInfo(selection);
