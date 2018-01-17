@@ -48,14 +48,20 @@ public class Useful extends Object {
 	 * @param	number	the number of which the divided and then rounded value gets returned
 	 * @param	divisor	the number whith which the 'number' gets divided
 	 * @return	the rounded, divided number
+	 * @throws	ArithmeticException "division by zero" exception
 	 */
-	public static int divisionRounded(int number, int divisor) {
+	public static int divisionRounded(int number, int divisor) throws ArithmeticException {
 		//int to float
 		float numberF = intToFloat(number);
 		float divisorF = intToFloat(divisor);
 		
 		//calculate
-		float result = numberF / divisorF;
+		float result = 0.0f;
+		try {
+			result = numberF / divisorF;
+		} catch (ArithmeticException arithmeticEx) {
+			throw arithmeticEx = new ArithmeticException("division by zero");
+		}
 		
 		//round and convert to int
 		int solution = floatToInt(round(result));
