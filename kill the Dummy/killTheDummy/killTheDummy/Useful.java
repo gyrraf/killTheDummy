@@ -75,12 +75,11 @@ public class Useful extends Object {
 	 * @return	the to 0 decimal places rounded number
 	 */
 	public static float round(float number) {
-		//find out the part before the decimal point and substract it
+		//find out the part before the decimal point and subtract it
 		float ground = 0.0f;
-		for (float f = 0.0f; f <= number; f = f + 1.0f) {
+		for (float f = 0.0f; f < number; f = f + 1.0f) {
 			ground = f;
 		}
-		ground = ground - 1.0f; //correct value because it is 1 too high
 		float decimalPlaces = number - ground;
 		
 		//find out if the decimal places are equal or larger than 0.5 or if they are smaller
