@@ -5,7 +5,7 @@ A textbased, turnbased game where you try to kill the enemy before the enemy kil
 The folder structure of "killTheDummy/killTheDummy" was made by Eclipse. This is just a copy of the folder I use while working in Eclipse.
 The folder contains an executable jar-file, the entire javadoc, the ".class" files and the ".java" files.
 
-Other Documents can be found in the folder "killTheDummy/killTheDummy_Documents".
+Other Documents can be found in the folder "killTheDummy/killTheDummy_Documents" and I included a README file in there that explains the folder structure in there.
 
 ## start the program:
 There are two ways to start this program:
