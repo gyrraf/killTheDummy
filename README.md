@@ -7,7 +7,7 @@ The folder contains an executable jar-file, the entire javadoc, the ".class" fil
 
 Other Documents can be found in the folder "killTheDummy/killTheDummy_Documents" and I included a README file in there that explains the folder structure in there.
 
-Old versions can be found in "killTheDummy/old_versions". You can also find a ".txt" file, that shows the dates to the versions. The old version zip-file contains the documents and program folders the way they were.
+Old versions can be found in "killTheDummy/old_versions". You can also find a ".txt" file, that shows the dates to the versions. The old version zip-file contains the documents and program folders the way they were when I ended the version.
 
 ## start the program:
 There are two ways to start this program:
