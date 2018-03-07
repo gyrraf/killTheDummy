@@ -15,7 +15,7 @@ import java.util.Scanner;
  * The fight of the player against the Dummy
  * @author	Raffael Gyr
  * @since	05.11.2017		(dd.mm.yyyy)
- * @version	1.0
+ * @version	1.1
  */
 public class Fight extends Object {
 	
@@ -251,7 +251,7 @@ public class Fight extends Object {
 						}
 						break;
 					case "ability":
-						if (number != 0) {
+						if ((number > 0) && (number <= 4)) {
 							moveMade = playerAbility(number);
 						} else {
 							moveMade = playerAbility();
