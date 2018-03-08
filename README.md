@@ -1,5 +1,6 @@
 # killTheDummy
 A textbased, turnbased game where you try to kill the enemy before the enemy kills you.
+most recent version: 1.1
 
 ## Folder structure:
 The folder structure of "killTheDummy/killTheDummy" was made by Eclipse. This is just a copy of the folder I use while working in Eclipse.
